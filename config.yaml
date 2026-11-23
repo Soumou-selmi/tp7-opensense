@@ -1,0 +1,18 @@
+dhcp:
+  interface: lan
+  subnet: 192.168.1.0/24
+  pool: 192.168.1.100-192.168.1.200
+  router: 192.168.1.1
+  dns:
+    - 192.168.1.1
+    - 1.1.1.1
+  description: TP7 zero-touch
+
+nat:
+  - name: TP7-portforward-8080
+    interface: wan
+    protocol: tcp
+    destination: wanip
+    external_port: 8080
+    target_ip: 192.168.1.10
+    target_port: 8080
